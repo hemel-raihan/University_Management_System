@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill Performance</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/student/style.css">
+    <link rel="stylesheet" href="/public/styles/student/style.css">
     
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
@@ -22,8 +22,8 @@
     <header>
         <div class="container">
         
-            <img class="logo" src="/images/aiub.png" width="150" height="150">
-            <img class="logo" src="/images/a.jpg" width="200" height="150">
+            <img class="logo" src="/public/images/aiub.png" width="150" height="150">
+            <img class="logo" src="/public/images/a.jpg" width="200" height="150">
             <div class="datetime">
                 <div class="date">
                     <p id="test"></p>
@@ -59,10 +59,10 @@
             <a class="nav-link" href="#contact">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="traditional_item/index.php">Traditional Food</a>
+            <a class="nav-link" href="/skill">Student Skill</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="food_order.php">Order</a>
+            <a class="nav-link" href="/studentlogin">Login</a>
           </li>
           
         </ul>
@@ -73,24 +73,17 @@
     <div class="categories">
         <div class="small-container">
         <div class="row">
+          <% for(var i=0; i< data.length; i++ ){ %> 
             <div class="col-3">
-                <img src="/images/aiub.png">
+                  
+          <a href="/skill/skilldetails/<%=data[i].id%>"> <img src="<%= data[i].photo %>" class="profile-img" alt=""></a>
                 <div class="item">
-                    <h4>Wild Photography</h4>
+                    <h4><%= data[i].title %></h4>
+                    
                 </div>
+                
             </div>
-            <div class="col-3">
-            <img src="/images/aiub.png">
-            <div class="item">
-                <h4>Wild Photography</h4>
-            </div>
-            </div>
-            <div class="col-3">
-            <img src="/images/aiub.png">
-            <div class="item">
-                <h4>Wild Photography</h4>
-            </div>
-            </div>
+            <% } %>
         </div>
         </div>
     </div>

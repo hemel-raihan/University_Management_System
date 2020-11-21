@@ -6,7 +6,7 @@
 
 .content
 {
-    background-image:  url(../../images/cofee.jpg);
+    background-image:  url(../../public/images/cofee.jpg);
     background-position: center;
     height: 100vh;
     background-size: cover;

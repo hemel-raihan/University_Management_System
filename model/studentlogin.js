@@ -21,8 +21,24 @@ module.exports ={
         });
     },
 
-    postinsert: function(user, callback) {
+   /* postinsert: function(user, callback) {
         var sql = "select * from studentuser where email = '" + data.email + "'";
+
+        db.getResults(sql, function(status) {
+            callback(status);
+        });
+    },*/
+
+    /*showskill: function(data, callback) {
+        var sql = "select * from studentuser where email = '" + data.email + "'";
+
+        db.getResults(sql, function(status) {
+            callback(status);
+        });
+    },*/
+
+    showupload: function(id, callback) {
+        var sql = "select * from post where userid = '" + id + "'";
 
         db.getResults(sql, function(status) {
             callback(status);

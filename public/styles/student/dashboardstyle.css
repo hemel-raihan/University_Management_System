@@ -218,6 +218,19 @@ label #sidebar_btn:hover
     padding: 30px 30px;
     background: yellowgreen;
 }
+.content .tableshow1
+{
+    
+    top: 15%;
+    left: 40%;
+    position: absolute;
+    
+}
+
+.content .tableshow1 table
+{
+    color: white;
+}
 .content .tableform1 a
 {
     margin-left: 70px;

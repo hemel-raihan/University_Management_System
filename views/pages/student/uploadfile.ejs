@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    <link rel="stylesheet" href="/public/styles/student/fileupload.css">
+</head>
+<body>
+    <div class="content">
+        <div class="form">
+      
+        <h4>Add File</h4>
+        <form method="post" enctype="multipart/form-data">
+        
+        <font color="green"> <p> Photo Title :</p><input type="text" name="title"></font>
+       
+      
+       <font color="green"> <p> Upload Photo :</p><input type="file" name="file"></font>
+        
+       <font color="green"> <p> photo description :</p><input type="text" name="description"></font>
+       <input type="hidden" name="id" value="<%=data[0].id%>">
+       
+        <input type="submit" value="upload">
+       </form>
+       <a class="btn btn-primary" href="showgellarypic.php" role="button">View Photo</a>
+       </div>
+       
+       </div>
+</body>
+</html>

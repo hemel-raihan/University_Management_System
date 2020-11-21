@@ -28,7 +28,7 @@ router.post('/',(req,res)=>{
 		if(status){
 			req.session.email =  user.email;
 			//req.session.id = user.id
-			//res.cookie('uname', req.body.username);
+			res.cookie('email', req.body.email);
             //res.redirect('/student_skill');
             res.redirect('/studentDashboard');	
 		}else{

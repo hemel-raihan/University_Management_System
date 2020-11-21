@@ -162,3 +162,43 @@ color: red!important;
 {
     transform: translateY(-5px);
 }
+
+
+
+/*----single product deteils----*/
+
+.single-product
+{
+    
+}
+.single-product .col-2 img
+{
+    margin-left: 60px;
+    margin-top: 80px;
+    padding: 0;
+}
+.single-product .right
+{
+    margin-top: 650px;
+    margin-left: 200px;
+    padding: 20px;
+}
+.single-product h4
+{
+    margin: 20px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+.single-product input
+{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 20px;
+    margin-right: 10px;
+    border: 1px solid #ff523b;
+}
+.title h2
+{
+    padding-top: 30px;
+}

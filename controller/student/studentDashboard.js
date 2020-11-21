@@ -4,41 +4,63 @@ const router = express.Router();
 
 router.get('/',(req,res)=>{
 //if(req.session.uname != null){
-//if(req.cookies['uname'] != null){
+if(req.cookies['email'] != null){
 		
     var data = {
         email: req.session.email
         
     };
     studentlogin.ProfileInfo(data, function(results) {
+        req.session.email =  data.email;
         res.render('pages/student/studentDashboard', { data: results });
     });
    // res.render('pages/student/studentDashboard',data);
-
+}
+else{
+    res.redirect('/studentlogin');
+}
 });
 
-
-
-
-/*router.get('/', (req, res)=>{
-
-    var name=
-    {
-        name: req.session.uname
-    }
-    studentlogin.getByName(name, function(results) {
-        res.redirect('/studentDashboard', {
-            user: results
+/*router.get('/showskill',(req,res)=>{
+    //if(req.session.uname != null){
+    if(req.cookies['email'] != null){
+            
+        var data = {
+            //email: req.session.email,
+            email: req.body.email,
+        };
+        studentlogin.showskill(data, function(results) {
+            req.session.email =  data.email;
+            res.render('pages/student/showskill', { data: results, });
         });
-    });
-	
-	
-});*/
+       // res.render('pages/student/studentDashboard',data);
+    }
+    else{
+        res.redirect('/studentlogin');
+    }
+    });*/
+
+    router.get('/showskill/:id',(req,res)=>{
+        //if(req.session.uname != null){
+        if(req.cookies['email'] != null){
+            var data = {
+                //email: req.session.email,
+                email: req.body.email,
+            };
+           
+            studentlogin.showupload(req.params.id, function(results) {
+                
+                res.render('pages/student/showskill', { value: results, data});
+            });
+           // res.render('pages/student/studentDashboard',data);
+        }
+        else{
+            res.redirect('/studentlogin');
+        }
+        });
 
 
-
-
-router.post('/', (req, res)=>{
+/*router.post('/', (req, res)=>{
     
 	var user = {
         
@@ -56,8 +78,7 @@ router.post('/', (req, res)=>{
 			res.redirect('/studentDashboard');
 		}
 	});
-})
-
+});*/
 
 
 
