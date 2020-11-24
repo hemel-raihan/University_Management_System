@@ -3,7 +3,7 @@ const db = require('./db');
 module.exports = 
 {
     fileupload: function(data, callback) {
-        var sql = "select * from studentuser where email = '" + data.email + "'";
+        var sql = "select * from user where email = '" + data.email + "'";
 
         db.getResults(sql, function(status) {
             callback(status);

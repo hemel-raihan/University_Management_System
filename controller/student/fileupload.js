@@ -15,7 +15,7 @@ router.get('/',(req,res)=>{
 router.post('/',(req,res)=>{
 
     let fileName = req.files.file;
-    let uploadPath = 'public/images/upload/' + fileName.name;
+    let uploadPath = 'assets/images/upload/' + fileName.name;
 
     var user =
     {
@@ -28,6 +28,7 @@ router.post('/',(req,res)=>{
     studentupload.insert(user, function(status){
         if(status)
         {
+            req.session.id =  user.id;
             req.session.email = user.email;
             console.log(fileName);
             fileName.mv(uploadPath, (err) => {

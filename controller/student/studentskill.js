@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get('/',(req,res)=>{
     //if(req.session.uname != null){
-    if(req.cookies['email'] != null){
+    //if(req.cookies['email'] != null){
             
         var data = {
             email: req.session.email
@@ -21,10 +21,10 @@ router.get('/',(req,res)=>{
             res.render('pages/student/student_skill', { data: results });
         });
       
-    }
+    /*}
     else{
         res.redirect('/');
-    }
+    }*/
     });
 
     router.get('/skilldetails/:id',(req,res)=>{

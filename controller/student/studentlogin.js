@@ -1,6 +1,7 @@
 const express = require('express');
 const studentlogin = require.main.require('./model/studentlogin');
 const router = express.Router();
+const {check, validationResult} = require('express-validator');
 
 router.get('/',(req,res)=>{
 
@@ -17,7 +18,18 @@ router.get('/',(req,res)=>{
 
 
 
-router.post('/',(req,res)=>{
+router.post('/',[
+	check('email','Invalid Mail').isEmail().normalizeEmail(),
+	check('password','Invalid Password').exists().isLength({min:3})
+],(req,res)=>{
+	var errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        console.log("Invalid Data");
+		console.log(errors);
+		const alert = errors.array();
+
+        res.render('pages/student/studentlogin',{alert});
+    } else {
     var user = {
 		email: req.body.email,
 		password: req.body.password,
@@ -35,7 +47,7 @@ router.post('/',(req,res)=>{
 			res.redirect('/studentlogin');
 		}
 	});
-
+	}
 	//res.render('login/index');
 	//res.redirect('/login');
 

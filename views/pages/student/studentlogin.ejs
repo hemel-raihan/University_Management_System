@@ -1,9 +1,25 @@
 <%- include('../../partials/header.ejs') %>
-<link rel="stylesheet" href="/public/styles/student/loginstyle.css">
+<link rel="stylesheet" href="/assets/styles/student/loginstyle.css">
 
 <div class="content">
+    <div class="container">
+        <% if(typeof alert != 'undefined'){ %>
+            <% alert.forEach(function(error){ %>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <%= error.msg %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+    
+           <% }) %>
+       <% } %>
+    </div>
+   
+    
+
     <div class="loginbox">
-        <img src="/public/images/avatar.png" class="avatar">
+        <img src="/assets/images/avatar.png" class="avatar">
         <h1>Login Here</h1>
         <form name="myForm" method="post">
             <p>User Name</p>
@@ -17,6 +33,11 @@
     </div>
     </div>
     </div>
+
+    <script>
+        var date = new Date();
+       document.getElementById("test").innerHTML = date.toDateString();
+    </script>
 
 </body>
 </html>

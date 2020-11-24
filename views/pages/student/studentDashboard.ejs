@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/public/styles/student/dashboardstyle.css">
+    <link rel="stylesheet" href="/assets/styles/student/dashboardstyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
@@ -24,7 +25,7 @@
         </div>
         <div class="right-area">
         <ul class="navbar">
-        <li>  <a href="index.php" class="logout_btn">Logout</a></li>
+        <li>  <a href="/logout" class="logout_btn">Logout</a></li>
         <li>  <a href="#" class="logout_btn">Edit Tradition</a>
         <ul class="next">
         <li><a href="edit_feature.php" class="logout_btn">Edit Feature</a></li>
@@ -56,23 +57,20 @@
     
         <div class="sidebar">
             <center>
-                <% if(data[0].file == ""){ %>
-                    <% var file = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png" %>
-                        <% } else{ %>
-                            <% file = data[0].file %>
-                                <% } %>
+               
 
                                    
-                <img src="<%= file %>" class="profile-img" alt="">
+                <img src="/<%= data[0].dp %>" class="profile-img" alt="">
                <h4><%=data[0].email%></h4>
+               
                 
                 
             </center>
-            <a href="#"><i class="fa fa-desktop" aria-hidden="true"></i><span>Dashboard</span></a>
-            <a href="admininsert.php"><i class="fa fa-cogs" aria-hidden="true"></i><span>Add Food</span></a>
-            <a href="admin_edt_dlt.php"><i class="fa fa-table" aria-hidden="true"></i><span>Update Food</span></a>
-            <a href="tradition_user.php"><i class="fa fa-th" aria-hidden="true"></i><span>Tradition User</span></a>
-            <a href="/studentDashboard/showskill/<%=data[0].id%>"><i class="fa fa-info-circle" aria-hidden="true"></i><span>Show Upload</span></a>
+            <a href="/course"><i class="fa fa-desktop" aria-hidden="true"></i><span>Registration</span></a>
+            <a href="/library"><i class="fa fa-cogs" aria-hidden="true"></i><span>Library</span></a>
+            <a href="/studentDashboard/showcourses/<%=data[0].email%>"><i class="fa fa-table" aria-hidden="true"></i><span>Show Registration</span></a>
+            <a href="/studentDashboard/showborrow/<%=data[0].email%>"><i class="fa fa-th" aria-hidden="true"></i><span>Show Borrowed Book</span></a>
+            <a href="/studentDashboard/showskill/<%=data[0].uid%>"><i class="fa fa-info-circle" aria-hidden="true"></i><span>Show Upload</span></a>
             <a href="employee_reg.php"><i class="fa fa-sliders-h" aria-hidden="true"></i><span>Employee</span></a>
            
             
@@ -87,24 +85,41 @@
             <input type="submit" name="submit" value="post"></br>
     </form>
    <div class="tableform1">
-        <h1>Show Party Reservation List</h1>
-        <a href="partybooklist.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Booking List</a>
+       <button type="button" id="studentlist">Profile Info</button>
+
+       <table id="student" class="table table-hover table-condensed" >
+        <tr>
+            <th>Department</th>
+            <th>CGPA</th>
+            <th>Admission Date</th>
+            <th>Student Status</th>
+        </tr>
+       
+    </table>
    </div>
 </div>
 
-<div class="content">
-   <div class="tableform2">
-        <h1>Show Traditional item OrderList</h1>
-        <a href="showorder.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">See List</a>
-   </div>
-</div>
 
-<div class="content">
-   <div class="tableform3">
-        <h1>Show Customer's Feedback</h1>
-        <a href="showfeedback.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">See List</a>
-   </div>
-</div>
+<script>
+    $('#studentlist').on('click', function() {
+        $.ajax({
+            url: '/student/<%=data[0].uid%>',
+            method: 'get',
+            dataType: 'json',
+            success: function(data) {
+                var msg = "";
+                for (var i = 0; i < data.length; i++) {
+                    //var msg = data[i].n_details + "  - " + data[i].posted_by;
+                    msg = msg + "<tr> <td> " + data[i].department + " </td> <td> " + data[i].cgpa + " </td> <td> " + data[i].admission_date + " </td> <td> " + data[i].student_status + " </td> </tr>";
+                }
+                $('#student').append(msg);
+            },
+            error: function(response) {
+                alert('server error occured')
+            }
+        });
+    })
+</script>
     
   
      

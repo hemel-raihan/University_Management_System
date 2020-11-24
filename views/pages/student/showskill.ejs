@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Skills</title>
-    <link rel="stylesheet" href="/public/styles/student/dashboardstyle.css">
+    <link rel="stylesheet" href="/assets/styles/student/dashboardstyle.css">
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
@@ -20,7 +20,7 @@
         </div>
         <div class="right-area">
         <ul class="navbar">
-        <li>  <a href="index.php" class="logout_btn">Logout</a></li>
+        <li>  <a href="/logout" class="logout_btn">Logout</a></li>
         <li>  <a href="#" class="logout_btn">Edit Tradition</a>
         <ul class="next">
         <li><a href="edit_feature.php" class="logout_btn">Edit Feature</a></li>
@@ -59,12 +59,8 @@
                 <h4><%= data.email %></h4>
                 
             </center>
-            <a href="#"><i class="fa fa-desktop" aria-hidden="true"></i><span>Dashboard</span></a>
-            <a href="admininsert.php"><i class="fa fa-cogs" aria-hidden="true"></i><span>Add Food</span></a>
-            <a href="admin_edt_dlt.php"><i class="fa fa-table" aria-hidden="true"></i><span>Update Food</span></a>
-            <a href="tradition_user.php"><i class="fa fa-th" aria-hidden="true"></i><span>Tradition User</span></a>
-            <a href="showofferlist.php"><i class="fa fa-info-circle" aria-hidden="true"></i><span>Offer List</span></a>
-            <a href="employee_reg.php"><i class="fa fa-sliders-h" aria-hidden="true"></i><span>Employee</span></a>
+            <a href="/studentDashboard"><i class="fa fa-desktop" aria-hidden="true"></i><span>Dashboard</span></a>
+            
            
             
         </div>
@@ -87,8 +83,8 @@
                         <td><img src="/<%= value[i].photo %>" width="60px"></td>
                         <td><%= value[i].description %></td>
                         <td>
-                            <a href="/user/edit/<%=value[i].id%>">Edit</a> | 
-                            <a href="/user/delete/<%=value[i].id%>">Delete</a>  
+                            <a href="/studentDashboard/showskill/edit/<%=value[i].id%>">Edit</a> | 
+                            <a href="/studentDashboard/showskill/delete/<%=value[i].id%>">Delete</a>  
                         </td>
                     </tr>
                     <% } %>
