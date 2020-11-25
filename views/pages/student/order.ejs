@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Details</title>
+    <title>Order Details</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/styles/student/style.css">
     
@@ -72,25 +72,39 @@
 
      <!----single product--->
      <div class="container">
-   <div class="small-container">
-    <div class="single-product">
-    <div class="row">
-    
-        <div class="col-2">
-          <img src="/<%=data[0].photo%>"  height="550px" width="860px" > 
-        </div>
-
-        <div class="right">
-            <p><%=data[0].title%></p>
-           
-            <h3>Product Deteils</h3></br>
-            <p><%=data[0].description%></p>
-            <a href="/order/<%=data[0].id%>">Order</a>
-        </div>
-    </div>
-    </div>
-    
-</div>
+        <h1>Course Registration</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="content">
+                <div class="tableshow1">
+                    <table>
+                      <tr>
+                        <td>Photo Id :</td>
+                        <td><input type="text" name="id" value="<%=value[0].id%>"></td>
+                    </tr>
+                        <tr>
+                            <td>Title :</td>
+                            <td><input type="text" name="title" value="<%=value[0].title%>"></td>
+                        </tr>
+                       >
+                        <tr>
+                            <td>Photo Owner Id :</td>
+                            <td><input type="text" name="studentid" value="<%=value[0].studentid%>"></td>
+                        </tr>
+                        <tr>
+                            <td>Your email :</td>
+                            <td><input type="text" name="email" placeholder="type ypur email"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" name="submit" value="Order"></td>
+                        </tr>
+                       
+                       
+                    </table>
+                </div>
+             </div>
+        </form>
 </div>
 
 <script>

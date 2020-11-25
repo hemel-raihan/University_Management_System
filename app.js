@@ -14,6 +14,8 @@ const logout = require('./controller/student/logout');
 const library = require('./controller/student/library');
 const student = require('./controller/student/student');
 const notice = require('./controller/student/notice');
+const order = require('./controller/student/order');
+const showorder = require('./controller/student/showorder');
 
 const app = express();
 
@@ -45,6 +47,8 @@ app.use('/logout',logout);
 app.use('/library',library);
 app.use('/student',student);
 app.use('/notice',notice);
+app.use('/order',order);
+app.use('/showorder',showorder);
 
 
 app.get('/',function(req,res){

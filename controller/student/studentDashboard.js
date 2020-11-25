@@ -217,6 +217,25 @@ else{
                             });
         
 
+                            router.get('showorder/:id',(req,res)=>{
+                                //if(req.session.uname != null){
+                                //if(req.cookies['email'] != null){
+                                        
+                                    var data = {
+                                        id: req.params.id
+                                        
+                                    };
+                                    studentlogin.showorder(data, function(results) {
+                                        res.render('pages/student/showorder',{value: results});
+                                        
+                                    });
+                                   // res.render('pages/student/studentDashboard',data);
+                               // }
+                               // else{
+                                   // res.redirect('/studentlogin');
+                                //}
+                                });
+
 
                    /* router.get('/borrow/:id',(req,res)=>{
                         //if(req.session.uname != null){

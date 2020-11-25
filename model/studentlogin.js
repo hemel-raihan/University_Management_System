@@ -98,6 +98,14 @@ module.exports ={
         });
     },
 
+    showorder: function(data, callback) {
+        var sql = "select * from photoorder where ownerid = '" + data.id + "'";
+
+        db.getResults(sql, function(status) {
+            callback(status);
+        });
+    },
+
 	/*getById: function(id, callback) {
         var sql = "select * from studentuser where id= '" + id + "'";
         db.getResults(sql, function(results) {
